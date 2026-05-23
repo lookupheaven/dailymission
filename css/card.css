@@ -1,0 +1,134 @@
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+.score {
+    font-family: 'SCoreDream';
+    font-weight: 300;
+}
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+/* blind */
+.blind { //제목 블라인드 처리 
+    position:absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+/* cardType03 */
+body {
+    background-color: #2254C3; //배경색 
+}
+.card__inner {
+    display: flex; //카드정렬 
+}
+.card__inner .card {
+    padding: 26px;
+    width: 33.3333%; //3개의 카드임으로 각 33.3%씩 준다
+    background-color: #fff;
+}
+.card__inner .card:nth-child(1) {
+    border-right: 1px solid #eee; //가운데 선 1
+}
+.card__inner .card:nth-child(2) {
+    border-right: 1px solid #eee; //가운데 선 2
+}
+.card__header {
+    position: relative; //figcaption 기준점 
+}
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.card__header figcaption { //art버튼 
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    color: #7B7B7B;
+}
+.card__contents h3 { //카드 타이틀
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.card__contents p { //카드 내용 
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 30px;
+}
+.card__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.card__footer h4 { //인적사항 이름 
+    text-align: right;
+    color: #DD2A2A;
+}
+.card__footer em { //인적사항 sub
+    display: block;
+    color: #666;
+    font-style: normal;
+}
+.card__footer span { //footer 사진 
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin-left: 10px;
+    margin-top: -3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}

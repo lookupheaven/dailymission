@@ -1,0 +1,22 @@
+{
+  "name": "daily-mission-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prestart": "kill-port 3000 || true",
+    "start": "node --experimental-sqlite server.js",
+    "predev": "kill-port 3000 || true",
+    "dev": "node --experimental-sqlite --watch server.js",
+    "import": "node --experimental-sqlite scripts/import_data.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-session": "^1.19.0",
+    "multer": "^2.1.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "kill-port": "^2.0.1"
+  }
+}

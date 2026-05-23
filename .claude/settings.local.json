@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(Set-Location \"c:\\\\Projects\\\\code3\\\\backend\"; Start-Process -NoNewWindow -FilePath \"node\" -ArgumentList \"--experimental-sqlite server.js\" -RedirectStandardOutput \"$env:TEMP\\\\backend_out.txt\" -RedirectStandardError \"$env:TEMP\\\\backend_err.txt\"; Start-Sleep -Seconds 2; Get-Content \"$env:TEMP\\\\backend_out.txt\"; Get-Content \"$env:TEMP\\\\backend_err.txt\")",
+      "PowerShell(Invoke-RestMethod \"http://localhost:3000/api/v1/calling/today\")",
+      "PowerShell(Invoke-RestMethod \"http://localhost:3000/api/v1/calling/0101\")",
+      "PowerShell(Invoke-RestMethod \"http://localhost:3000/api/v1/calling/list?limit=3\")",
+      "PowerShell($r1 = Invoke-RestMethod \"http://localhost:3000/api/v1/calling/0101\"; Write-Output \"0101 title: $\\($r1.title.Substring\\(0,30\\)\\)\"; $r2 = Invoke-RestMethod \"http://localhost:3000/api/v1/calling/list?limit=3\"; Write-Output \"total: $\\($r2.total\\), returned: $\\($r2.data.Count\\)\")",
+      "PowerShell($proc = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; Write-Output \"Killed PID $proc\" } else { Write-Output \"No process on port 3000\" })"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 로그인 — Daily Mission</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">✝</div>
+      <h1 class="login-title">Daily Mission</h1>
+      <p class="login-sub">관리자 로그인</p>
+
+      <form id="login-form" onsubmit="doLogin(event)">
+        <div class="field">
+          <label for="username">아이디</label>
+          <input type="text" id="username" placeholder="아이디 입력" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">패스워드</label>
+          <input type="password" id="password" placeholder="패스워드 입력" autocomplete="current-password" required>
+        </div>
+        <p id="error-msg" class="error-msg hidden"></p>
+        <button type="submit" id="login-btn" class="btn-login">로그인</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    async function doLogin(e) {
+      e.preventDefault()
+      const btn = document.getElementById('login-btn')
+      const err = document.getElementById('error-msg')
+      btn.disabled = true
+      btn.textContent = '로그인 중...'
+      err.classList.add('hidden')
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+          }),
+        })
+        const json = await res.json()
+        if (!res.ok) throw new Error(json.error)
+        window.location.href = '/admin/'
+      } catch (ex) {
+        err.textContent = ex.message
+        err.classList.remove('hidden')
+        btn.disabled = false
+        btn.textContent = '로그인'
+        document.getElementById('password').value = ''
+        document.getElementById('password').focus()
+      }
+    }
+  </script>
+</body>
+</html>

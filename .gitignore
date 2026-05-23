@@ -1,0 +1,25 @@
+# ── Node.js ───────────────────────────────────────
+backend/node_modules/
+
+# ── 환경변수 (시크릿 키 등) ───────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── DB 파일 (npm run import 로 재생성) ────────────
+backend/db/calling.db
+
+# ── 로그 ──────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── OS ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── IDE ───────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
